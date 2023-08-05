@@ -55,7 +55,8 @@
                         @endif
                     </div>
                     <div class="flex gap-5 ml-5 items-start">
-                        <button wire:click='edit({{ $todo->id }})'>
+                        <button {{-- wire:click='edit({{ $todo->id }})'> --}}
+                            wire:click='{{ $editingTodoId == $todo->id ? 'cancelEdit' : 'edit(' . $todo->id . ')' }}'>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                 stroke-width="1.5" stroke="currentColor"
                                 class="w-6 h-6 text-gray-800 dark:text-gray-200 hover:text-indigo-500">
