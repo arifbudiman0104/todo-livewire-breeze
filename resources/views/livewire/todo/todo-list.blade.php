@@ -80,5 +80,10 @@
                 No todos found
             </p>
         @endforelse
+        @if ($todos->where('is_complete', true)->count() > 1)
+            <x-secondary-button wire:click.prevent='deleteAllCompletedTodo'>
+                {{ __('Delete All Completed Todo') }}
+            </x-secondary-button>
+        @endif
     </div>
 </div>

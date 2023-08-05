@@ -15,6 +15,15 @@ class TodoList extends Component
     #[Rule('required|min:3|max:255')]
     public $editingTodoTitle;
 
+    public function deleteAllCompletedTodo()
+    {
+        $todos = Todo::where('user_id', auth()->id())
+            ->where('is_complete', true)->get();
+        foreach ($todos as $todo) {
+            $todo->delete();
+        }
+    }
+
     public function cancelEdit()
     {
         $this->reset(['editingTodoId', 'editingTodoTitle']);
