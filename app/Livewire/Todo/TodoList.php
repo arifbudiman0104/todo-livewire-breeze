@@ -27,6 +27,7 @@ class TodoList extends Component
     public function cancelEdit()
     {
         $this->reset(['editingTodoId', 'editingTodoTitle']);
+        $this->resetErrorBag();
     }
 
     public function update(Todo $todo)
@@ -47,6 +48,7 @@ class TodoList extends Component
     {
         $this->editingTodoId = $todo->id;
         $this->editingTodoTitle = $todo->title;
+        $this->resetErrorBag();
     }
 
     public function delete(Todo $todo)

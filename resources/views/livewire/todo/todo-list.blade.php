@@ -81,7 +81,7 @@
             </p>
         @endforelse
         @if ($todos->where('is_complete', true)->count() > 1)
-            <x-secondary-button wire:click.prevent='deleteAllCompletedTodo'>
+            <x-secondary-button wire:click='deleteAllCompletedTodo'>
                 {{ __('Delete All Completed Todo') }}
             </x-secondary-button>
         @endif
