@@ -6,7 +6,7 @@ use App\Models\Todo;
 use Livewire\Attributes\Rule;
 use Livewire\Component;
 
-class Index extends Component
+class TodoList extends Component
 {
     public $search;
 
@@ -71,6 +71,6 @@ class Index extends Component
         //     ->latest()
         //     ->get();
 
-        return view('livewire.todo.index', compact('todos'));
+        return view('livewire.todo.todo-list', compact('todos'));
     }
 }

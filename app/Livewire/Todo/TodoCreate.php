@@ -6,7 +6,7 @@ use App\Models\Todo;
 use Livewire\Attributes\Rule;
 use Livewire\Component;
 
-class Create extends Component
+class TodoCreate extends Component
 {
     #[Rule('required|min:3|max:255')]
     public $title;
@@ -26,6 +26,6 @@ class Create extends Component
 
     public function render()
     {
-        return view('livewire.todo.create');
+        return view('livewire.todo.todo-create');
     }
 }
