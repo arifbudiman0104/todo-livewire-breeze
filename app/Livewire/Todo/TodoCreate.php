@@ -3,6 +3,7 @@
 namespace App\Livewire\Todo;
 
 use App\Models\Todo;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\Rule;
 use Livewire\Component;
 
@@ -15,12 +16,16 @@ class TodoCreate extends Component
     {
         // ddd('test');
         $validated = $this->validateOnly('title');
+
         Todo::create([
             'user_id' => auth()->id(),
             'title' => $validated['title'],
         ]);
-        // auth()->user()->todos()->create($validated);
-        session()->flash('created', 'Created.');
+
+        // Auth::user()
+        //     ->todos()
+        //     ->create($validated);
+
         $this->redirect(route('todo.index'));
     }
 
