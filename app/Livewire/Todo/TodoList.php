@@ -17,10 +17,11 @@ class TodoList extends Component
 
     public function deleteAllCompletedTodo()
     {
-        // $todos = Todo::where('user_id', auth()->id())
-        //     ->where('is_complete', true)->get();
+        $todos = Todo::where('user_id', auth()->id())
+            ->where('is_complete', true)->get();
 
-        $todos = auth()->user()->todos()->where('is_complete', true)->get();
+        // $todos = auth()->user()->todos()->where('is_complete', true)->get();
+
         foreach ($todos as $todo) {
             $todo->delete();
         }
