@@ -23,6 +23,9 @@
 
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ml-6">
+                <div x-cloak>
+                    @include('layouts.partials.theme')
+                </div>
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
                         <button
@@ -85,7 +88,7 @@
                 {{ __('Todo') }}
             </x-responsive-nav-link>
         </div>
-
+        @include('layouts.partials.theme-responsive')
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-200 dark:border-gray-600">
             <div class="px-4">
