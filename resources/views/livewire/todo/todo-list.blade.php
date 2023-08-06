@@ -37,20 +37,21 @@
                             </div>
                         @else
                             <div>
+                                <h2
+                                    class="text-lg font-medium text-gray-900 dark:text-gray-100 {{ $todo->is_complete ? 'line-through text-gray-400 dark:text-gray-500' : '' }}">
+                                    {{ $todo->title }}
+                                </h2>
                                 <div class="flex items-center">
-                                    <h2
-                                        class="text-lg font-medium text-gray-900 dark:text-gray-100 {{ $todo->is_complete ? 'line-through text-gray-400 dark:text-gray-500' : '' }}">
-                                        {{ $todo->title }}
-                                    </h2>
+                                    <p class="text-xs text-gray-500 dark:text-gray-400">
+                                        {{ $todo->created_at->diffForHumans() }}
+                                    </p>
                                     @if ($todo->created_at != $todo->updated_at)
-                                        <p class="ml-3 text-xs text-gray-500 dark:text-gray-400">
+                                        <p class="ml-1 text-xs text-gray-500 dark:text-gray-400">
+                                            <span>&middot;</span>
                                             edited
                                         </p>
                                     @endif
                                 </div>
-                                <p class="text-sm text-gray-500 dark:text-gray-400">
-                                    {{ $todo->created_at->diffForHumans() }}
-                                </p>
                             </div>
                         @endif
                     </div>
