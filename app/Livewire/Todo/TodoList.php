@@ -3,6 +3,7 @@
 namespace App\Livewire\Todo;
 
 use App\Models\Todo;
+use Auth;
 use Livewire\Attributes\Rule;
 use Livewire\Component;
 
@@ -18,9 +19,13 @@ class TodoList extends Component
     public function deleteAllCompletedTodo()
     {
         $todos = Todo::where('user_id', auth()->id())
-            ->where('is_complete', true)->get();
+            ->where('is_complete', true)
+            ->get();
 
-        // $todos = auth()->user()->todos()->where('is_complete', true)->get();
+        // $todos = Auth::user()
+        //     ->todos()
+        //     ->where('is_complete', true)
+        //     ->get();
 
         foreach ($todos as $todo) {
             $todo->delete();
@@ -36,12 +41,13 @@ class TodoList extends Component
     public function update(Todo $todo)
     {
         $validated = $this->validateOnly('editingTodoTitle');
+
         Todo::where('id', $todo->id)->update([
             'title' => $validated['editingTodoTitle'],
         ]);
 
         // $todo->update([
-        //     'title' => $this->editingTodoTitle,
+        //     'title' => $validated['editingTodoTitle'],
         // ]);
 
         $this->cancelEdit();
@@ -80,7 +86,9 @@ class TodoList extends Component
             ->latest()
             ->get();
 
-        // $todos = auth()->user()->todos()->where('title', 'like', '%'.$this->search.'%')
+        // $todos = Auth::user()
+        //     ->todos()
+        //     ->where('title', 'like', '%'.$this->search.'%')
         //     ->orderBy('is_complete')
         //     ->latest()
         //     ->get();
