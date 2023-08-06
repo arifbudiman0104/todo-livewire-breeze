@@ -1,8 +1,8 @@
 <div>
     <div>
         <x-input-label for="name" :value="__('Title')" />
-        <x-text-input wire:model='title' id="title" class="block mt-1 w-full" type="text" name="title" :value="old('title')"
-            required autofocus autocomplete="title" />
+        <x-text-input wire:model='title' id="title" class="block mt-1 w-full" type="text" name="title" required
+            autofocus autocomplete="title" placeholder="Title here" />
         <x-input-error :messages="$errors->get('title')" class="mt-2" />
     </div>
     <div class="mt-5">
