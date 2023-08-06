@@ -7,8 +7,18 @@ use Livewire\Component;
 
 class Dashboard extends Component
 {
+    public function placeholder()
+    {
+        return <<<'HTML'
+        <div>
+            loading data...
+        </div>
+        HTML;
+    }
+
     public function render()
     {
+        sleep(2);
         $todosCompleted = Todo::where('user_id', auth()->id())->where('is_complete', true)->count();
         // $todosCompleted = auth()->user()->todos()->where('is_complete', true)->count();
 

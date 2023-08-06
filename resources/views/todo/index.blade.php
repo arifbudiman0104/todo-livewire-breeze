@@ -10,6 +10,7 @@
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-4 sm:p-6 text-gray-900 dark:text-gray-100">
                     @livewire('todo.todo-list')
+                    {{-- <livewire:todo.todo-list> --}}
                 </div>
             </div>
         </div>
