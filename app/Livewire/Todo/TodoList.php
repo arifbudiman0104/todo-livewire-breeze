@@ -3,7 +3,7 @@
 namespace App\Livewire\Todo;
 
 use App\Models\Todo;
-use Auth;
+use Illuminate\View\View;
 use Livewire\Attributes\Rule;
 use Livewire\Component;
 
@@ -16,7 +16,7 @@ class TodoList extends Component
     #[Rule('required|min:3|max:255')]
     public $editingTodoTitle;
 
-    public function deleteAllCompletedTodo()
+    public function deleteAllCompletedTodo(): void
     {
         $todos = Todo::where('user_id', auth()->id())
             ->where('is_complete', true)
@@ -32,13 +32,13 @@ class TodoList extends Component
         }
     }
 
-    public function cancelEdit()
+    public function cancelEdit(): void
     {
         $this->reset(['editingTodoId', 'editingTodoTitle']);
         $this->resetErrorBag();
     }
 
-    public function update(Todo $todo)
+    public function update(Todo $todo): void
     {
         $validated = $this->validateOnly('editingTodoTitle');
 
@@ -53,21 +53,21 @@ class TodoList extends Component
         $this->cancelEdit();
     }
 
-    public function edit(Todo $todo)
+    public function edit(Todo $todo): void
     {
         $this->editingTodoId = $todo->id;
         $this->editingTodoTitle = $todo->title;
         $this->resetErrorBag();
     }
 
-    public function delete(Todo $todo)
+    public function delete(Todo $todo): void
     {
         Todo::where('id', $todo->id)->delete();
 
         // $todo->delete();
     }
 
-    public function check(Todo $todo)
+    public function check(Todo $todo): void
     {
         Todo::withoutTimestamps(function () use ($todo) {
             Todo::where('id', $todo->id)
@@ -78,7 +78,7 @@ class TodoList extends Component
         // $todo->update(['is_complete' => ! $todo->is_complete]);
     }
 
-    public function render()
+    public function render(): View
     {
         $todos = Todo::where('user_id', auth()->id())
             ->where('title', 'like', '%'.$this->search.'%')
