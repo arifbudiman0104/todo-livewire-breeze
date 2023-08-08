@@ -9,6 +9,10 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-4 sm:p-6 text-gray-900 dark:text-gray-100">
+                    {{-- uncomment this if you want to use multiple component at one page --}}
+                    {{-- @livewire('todo.todo-create') --}}
+                    {{-- <livewire:todo.todo-create> --}}
+
                     @livewire('todo.todo-list')
                     {{-- <livewire:todo.todo-list> --}}
                 </div>

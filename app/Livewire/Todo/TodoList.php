@@ -4,6 +4,7 @@ namespace App\Livewire\Todo;
 
 use App\Models\Todo;
 use Illuminate\View\View;
+use Livewire\Attributes\On;
 use Livewire\Attributes\Rule;
 use Livewire\Component;
 
@@ -78,6 +79,7 @@ class TodoList extends Component
         // $todo->update(['is_complete' => ! $todo->is_complete]);
     }
 
+    // #[On('todoCreated')]     // uncomment this line if you want to use single component on one page
     public function render(): View
     {
         $todos = Todo::where('user_id', auth()->id())

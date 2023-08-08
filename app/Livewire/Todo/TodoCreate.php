@@ -27,6 +27,11 @@ class TodoCreate extends Component
         //     ->todos()
         //     ->create($validated);
 
+        // uncomment this line if you want to use multiple component on one page
+        // $this->reset('title');
+        // $this->dispatch('todoCreated');
+
+        // comment this line if you want to use single component on one page
         $this->redirect(route('todo.index'));
     }
 

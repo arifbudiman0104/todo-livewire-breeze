@@ -1,6 +1,7 @@
 <div>
     <div class="sm:flex space-y-4 sm:space-y-0 sm:gap-5 justify-between items-center">
         <div class="flex-shrink">
+            {{-- comment this button if you want to use single component on one page --}}
             <x-primary-button-link wire:navigate href="{{ route('todo.create') }}">
                 {{ __('Create Todo') }}
             </x-primary-button-link>
