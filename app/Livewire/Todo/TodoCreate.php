@@ -16,6 +16,7 @@ class TodoCreate extends Component
     public function create(): void
     {
         // ddd('test');
+        // sleep(5);
         $validated = $this->validateOnly('title');
 
         Todo::create([

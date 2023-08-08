@@ -9,5 +9,8 @@
         <x-primary-button wire:click.prevent='create'>
             {{ __('Create') }}
         </x-primary-button>
+        <p wire:loading class="text-sm text-indigo-600 dark:text-indigo-400 space-y-1 ml-2">
+            Creating...
+        </p>
     </div>
 </div>

@@ -10,9 +10,9 @@ class Dashboard extends Component
     public function placeholder()
     {
         return <<<'HTML'
-        <div>
-            loading data...
-        </div>
+        <p class="text-sm text-indigo-600 dark:text-indigo-400 space-y-1">
+            Loading...
+        </p>
         HTML;
     }
 
