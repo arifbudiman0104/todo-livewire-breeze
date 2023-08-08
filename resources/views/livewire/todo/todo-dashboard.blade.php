@@ -1,7 +1,4 @@
 <div>
-    <p>
-        {{ __('Welcome you are logged in!') }}
-    </p>
     <div class="mt-5 space-y-5">
         <div class="bg-gray-100 dark:bg-gray-700 rounded-lg p-4 flex flex-col justify-between">
             <div>

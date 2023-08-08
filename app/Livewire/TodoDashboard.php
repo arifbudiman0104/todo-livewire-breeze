@@ -5,7 +5,7 @@ namespace App\Livewire;
 use App\Models\Todo;
 use Livewire\Component;
 
-class Dashboard extends Component
+class TodoDashboard extends Component
 {
     public function placeholder()
     {
@@ -25,6 +25,6 @@ class Dashboard extends Component
         $todoNotCompleted = Todo::where('user_id', auth()->id())->where('is_complete', false)->count();
         // $todoNotCompleted = auth()->user()->todos()->where('is_complete', false)->count();
 
-        return view('livewire.dashboard', compact('todosCompleted', 'todoNotCompleted'));
+        return view('livewire.todo.todo-dashboard', compact('todosCompleted', 'todoNotCompleted'));
     }
 }
