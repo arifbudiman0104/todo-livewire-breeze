@@ -18,6 +18,11 @@
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <style>
+        [x-cloak] {
+            display: none;
+        }
+    </style>
 </head>
 
 <body class="font-sans text-gray-900 antialiased">
@@ -26,6 +31,9 @@
             <a href="/">
                 <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
             </a>
+            <div x-cloak class="mt-5">
+                @include('layouts.partials.theme')
+            </div>
         </div>
 
         <div
