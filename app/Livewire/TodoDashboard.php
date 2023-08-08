@@ -18,7 +18,7 @@ class TodoDashboard extends Component
 
     public function render()
     {
-        sleep(2);
+        sleep(5);
         $todosCompleted = Todo::where('user_id', auth()->id())->where('is_complete', true)->count();
         // $todosCompleted = auth()->user()->todos()->where('is_complete', true)->count();
 
